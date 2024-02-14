@@ -1,3 +1,3 @@
 # Cars-for-rent
 
-This is car rental aplication.
+This is car rental aplication
