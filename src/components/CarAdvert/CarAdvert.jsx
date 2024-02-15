@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import {
   AccentItem,
   BtnFavorite,
@@ -26,6 +26,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectFavorite } from '../../redux/favorite/selectorsFavorite';
 import heartfillIcon from '../../data/heartFill.svg';
 import heartIcon from '../../data/heart.svg';
+import plug from '../../data/plug.jpg';
 
 const AdvertCar = ({ data }) => {
   const {
@@ -69,8 +70,8 @@ const AdvertCar = ({ data }) => {
   };
 
   const formatMileage = mileage => {
-    return mileage.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
+    return mileage.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  };
 
   return (
     <>
@@ -78,15 +79,24 @@ const AdvertCar = ({ data }) => {
         <BtnFavorite type="button" onClick={() => chooseFavorite(data)}>
           {favorite.some(car => car.id === data.id) ? (
             <FavoriteSvg>
-              <use href={heartfillIcon + '#heart'}></use>
+              <use href={`${heartfillIcon}#heart`} />
             </FavoriteSvg>
           ) : (
             <FavoriteSvg>
-              <use href={heartIcon + '#heart'}></use>
+                <use href={`${heartIcon}#heart`} />
             </FavoriteSvg>
           )}
         </BtnFavorite>
-        <CarImg src={img} alt={`${make} ${model}`} width={274} height={268} />
+        {img && <CarImg
+          src={img}
+          alt={`${make} ${model}`}
+          width={274}
+          height={268}
+          onError={(e) => {
+            e.target.classList.add("no-image");
+            e.target.src = plug;
+          }}
+        />}
         <TitleWrapper>
           <p>
             {make} <CarNameAccent>{model}</CarNameAccent>, {year}{' '}
@@ -110,7 +120,7 @@ const AdvertCar = ({ data }) => {
       </CarContainer>
       {showModal && (
         <Modal onClose={handleCloseModal}>
-          <CarImg src={img} alt={`${make} ${model}`} width={461} height={248} />
+          {img && <CarImg src={img} alt={`${make} ${model}`} width={461} height={248} />}
           <TitleWrapper>
             <p>
               {make} <CarNameAccent>{model}</CarNameAccent>, {year}{' '}
@@ -133,7 +143,6 @@ const AdvertCar = ({ data }) => {
               {accessories.map(item => (
                 <CarInfoItem key={item}>{item}</CarInfoItem>
               ))}
-              
             </CarInfoList>
 
             <NextCarInfoList>

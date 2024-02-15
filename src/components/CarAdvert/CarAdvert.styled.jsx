@@ -42,10 +42,17 @@ export const CarImg = styled.img`
   object-position: center;
   margin-bottom: 14px;
   transition: box-shadow 250ms;
+  width: 274px;
+  height: 268px;
+
   &:hover {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   }
+
+  
+
 `;
+
 export const TitleWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -88,7 +95,7 @@ export const NextCarInfoList = styled.ul`
 `;
 
 export const LearnMoreBtn = styled.button`
-  background: #3470ff;
+  background-color: #3470ff;
   color: #fff;
   font-family: 'Manrope';
   font-size: 14px;
@@ -105,7 +112,7 @@ export const LearnMoreBtn = styled.button`
   cursor: pointer;
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
   &:hover {
-    background: #0b44cd;
+    background-color: #0b44cd;
   }
 `;
 

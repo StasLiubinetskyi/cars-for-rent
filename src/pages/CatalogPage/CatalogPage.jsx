@@ -6,7 +6,7 @@ import CarList from '../../components/CarList/CarList';
 
 const Catalog = () => {
   const cars = useSelector(selectCars);
-  const [page /*, setPage*/] = useState(1);
+  const [page] = useState(1);
   const dispatch = useDispatch();
 
   useEffect(() => {
