@@ -1,12 +1,12 @@
-import { StyledLink } from '../../pages/HomePage/HomePage.styled';
-import { EmptyContainer, EmptyText } from './FavoriteEmpty.styled';
+import React from 'react';
+import { EmptyContainer, EmptyText, StyledCatalogLink } from './FavoriteEmpty.styled';
 
 const FavoriteEmpty = () => {
     return (
         <EmptyContainer>
             <EmptyText>
-                You havn't cars in favorites yet. Go to the{' '}
-                <StyledLink to="catalog">Catalog</StyledLink>
+                You haven't added any cars to favorites yet. Go to the{' '}
+                <StyledCatalogLink to="/catalog">Catalog</StyledCatalogLink>
             </EmptyText>
         </EmptyContainer>
     );
