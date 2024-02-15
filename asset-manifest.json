@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/cars-for-rent/static/css/main.e91f2033.css",
+    "main.js": "/cars-for-rent/static/js/main.1cbde04e.js",
+    "static/js/392.ac02ab93.chunk.js": "/cars-for-rent/static/js/392.ac02ab93.chunk.js",
+    "static/js/915.9157c2d9.chunk.js": "/cars-for-rent/static/js/915.9157c2d9.chunk.js",
+    "static/js/692.95dfe196.chunk.js": "/cars-for-rent/static/js/692.95dfe196.chunk.js",
+    "static/js/264.6065bed5.chunk.js": "/cars-for-rent/static/js/264.6065bed5.chunk.js",
+    "static/media/BackgroundImages.jpg": "/cars-for-rent/static/media/BackgroundImages.6f68302448af7990151a.jpg",
+    "static/media/heartFill.svg": "/cars-for-rent/static/media/heartFill.1ef74a4779d2ba8d7b9d7889fcbb6a50.svg",
+    "static/media/heart.svg": "/cars-for-rent/static/media/heart.fef107dce91098c91a44365de4630f46.svg",
+    "static/media/close.svg": "/cars-for-rent/static/media/close.207d302dcbc0e4eda87f4e017e001a6e.svg",
+    "index.html": "/cars-for-rent/index.html",
+    "main.e91f2033.css.map": "/cars-for-rent/static/css/main.e91f2033.css.map",
+    "main.1cbde04e.js.map": "/cars-for-rent/static/js/main.1cbde04e.js.map",
+    "392.ac02ab93.chunk.js.map": "/cars-for-rent/static/js/392.ac02ab93.chunk.js.map",
+    "915.9157c2d9.chunk.js.map": "/cars-for-rent/static/js/915.9157c2d9.chunk.js.map",
+    "692.95dfe196.chunk.js.map": "/cars-for-rent/static/js/692.95dfe196.chunk.js.map",
+    "264.6065bed5.chunk.js.map": "/cars-for-rent/static/js/264.6065bed5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e91f2033.css",
+    "static/js/main.1cbde04e.js"
+  ]
+}
