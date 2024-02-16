@@ -1,9 +1,13 @@
 import { createPortal } from 'react-dom';
-import { CloseButton, CloseSvg, ModalCard, Overlay } from './Modal.styled';
 import { useEffect } from 'react';
-import iconClose from '../../data/close.svg';
+import { CloseButton, CloseSvg, ModalCard, Overlay } from './Modal.styled';
+import iconClose from '../../data/svg/close.svg';
 
 const modalRoot = document.querySelector('#modal-root');
+
+if (!modalRoot) {
+    throw new Error("Modal root element not found in the DOM. Make sure to create an element with id 'modal-root'.");
+}
 
 const Modal = ({ onClose, children }) => {
     useEffect(() => {
@@ -19,7 +23,7 @@ const Modal = ({ onClose, children }) => {
     }, [onClose]);
 
     const handleBackdropClick = e => {
-        if (e.currentTarget === e.target) {
+        if (e.target === e.currentTarget) {
             onClose();
         }
     };

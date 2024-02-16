@@ -24,8 +24,8 @@ import {
 } from '../../redux/favorite/sliceFavorite';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectFavorite } from '../../redux/favorite/selectorsFavorite';
-import heartfillIcon from '../../data/heartFill.svg';
-import heartIcon from '../../data/heart.svg';
+import heartfillIcon from '../../data/svg/heartFill.svg';
+import heartIcon from '../../data/svg/heart.svg';
 import plug from '../../data/plug.jpg';
 
 const AdvertCar = ({ data }) => {

@@ -42,14 +42,10 @@ export const CarImg = styled.img`
   object-position: center;
   margin-bottom: 14px;
   transition: box-shadow 250ms;
-  width: 274px;
-  height: 268px;
-
+  
   &:hover {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   }
-
-  
 
 `;
 
