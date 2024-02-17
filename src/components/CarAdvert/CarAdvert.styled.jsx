@@ -118,23 +118,25 @@ export const CarDescription = styled.p`
   font-weight: 400;
   color: #121417;
   margin-top: 24px;
+  
 `;
 
 export const CardSubtitle = styled.p`
   font-family: 'Manrope';
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
   line-height: 1.25;
   color: #121417;
   margin-bottom: 8px;
-  margin-top: 24px;
-`;
+  margin-top: 22px;
+  `;
 
 export const RentalConditionsList = styled.ul`
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
 `;
+
 
 export const ConditionItem = styled.li`
   font-family: 'Manrope';

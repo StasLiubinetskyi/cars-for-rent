@@ -120,7 +120,16 @@ const AdvertCar = ({ data }) => {
       </CarContainer>
       {showModal && (
         <Modal onClose={handleCloseModal}>
-          {img && <CarImg src={img} alt={`${make} ${model}`} width={461} height={248} />}
+          {img && <CarImg
+            src={img}
+            alt={`${make} ${model}`}
+            width={461}
+            height={248}
+            onError={(e) => {
+              e.target.classList.add("no-image");
+              e.target.src = plug;
+            }}
+          />}
           <TitleWrapper>
             <p>
               {make} <CarNameAccent>{model}</CarNameAccent>, {year}{' '}

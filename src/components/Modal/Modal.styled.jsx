@@ -23,6 +23,7 @@ export const ModalCard = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 40px;
+  
 `;
 
 export const CloseButton = styled.button`

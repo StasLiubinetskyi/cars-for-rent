@@ -15,7 +15,7 @@ export const WrapperHomePage = styled.div`
 export const HomeContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 700px;
+  width: 750px;
   gap: 25px;
   margin: auto;
   backdrop-filter: blur(30px);
