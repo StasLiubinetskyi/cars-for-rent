@@ -16,6 +16,7 @@ import {
   RentalBtn,
   RentalConditionsList,
   TitleWrapper,
+  ConditionItemWrapper
 } from './CarAdvert.styled';
 import Modal from '../Modal/Modal';
 import {
@@ -101,7 +102,7 @@ const AdvertCar = ({ data }) => {
           <p>
             {make} <CarNameAccent>{model}</CarNameAccent>, {year}{' '}
           </p>
-          {rentalPrice}
+          {!showModal && rentalPrice}
         </TitleWrapper>
         <CarInfoList>
           <CarInfoItem>{city}</CarInfoItem>
@@ -134,8 +135,9 @@ const AdvertCar = ({ data }) => {
             <p>
               {make} <CarNameAccent>{model}</CarNameAccent>, {year}{' '}
             </p>
-            {rentalPrice}
+            {!showModal && rentalPrice}
           </TitleWrapper>
+
           <CarInfoList>
             <CarInfoItem>{city}</CarInfoItem>
             <CarInfoItem>{country}</CarInfoItem>
@@ -143,11 +145,13 @@ const AdvertCar = ({ data }) => {
             <CarInfoItem>Year: {year}</CarInfoItem>
             <CarInfoItem>Type: {type}</CarInfoItem>
           </CarInfoList>
+
           <NextCarInfoList>
             <CarInfoItem>Fuel Consumption: {fuelConsumption}</CarInfoItem>
             <CarInfoItem>Engine Size: {engineSize}</CarInfoItem>
             <CarDescription>{description}</CarDescription>
             <CardSubtitle>Accessories and functionalities:</CardSubtitle>
+
             <CarInfoList>
               {accessories.map(item => (
                 <CarInfoItem key={item}>{item}</CarInfoItem>
@@ -162,15 +166,28 @@ const AdvertCar = ({ data }) => {
 
             <CardSubtitle> Rental Conditions:</CardSubtitle>
             <RentalConditionsList>
-              <ConditionItem>{rentalConditions[0]} </ConditionItem>
-              <ConditionItem>{rentalConditions[1]} </ConditionItem>
-              <ConditionItem>{rentalConditions[2]} </ConditionItem>
-              <ConditionItem>
-                Mileage: <AccentItem>{formatMileage(mileage)}</AccentItem>{' '}
-              </ConditionItem>
-              <ConditionItem>
-                Price: <AccentItem>{rentalPrice}</AccentItem>{' '}
-              </ConditionItem>
+              <ConditionItemWrapper>
+                <ConditionItem>
+                  {rentalConditions[0].match(/\d/g) ? (
+                    <>
+                      Minimum age :{' '}
+                      <AccentItem>{rentalConditions[0].match(/\d/g).join('')}</AccentItem>
+                    </>
+                  ) : (
+                    rentalConditions[0]
+                  )}
+                </ConditionItem>
+                <ConditionItem>{rentalConditions[1]}</ConditionItem>
+              </ConditionItemWrapper>
+              <ConditionItemWrapper>
+                <ConditionItem>{rentalConditions[2]}</ConditionItem>
+                <ConditionItem>
+                  Mileage: <AccentItem>{formatMileage(mileage)}</AccentItem>
+                </ConditionItem>
+                <ConditionItem>
+                  Price: <AccentItem>{rentalPrice.replace('$', '') + '$'}</AccentItem>
+                </ConditionItem>
+              </ConditionItemWrapper>
             </RentalConditionsList>
           </NextCarInfoList>
           <RentalBtn href="tel:+380730000000">Rental car</RentalBtn>

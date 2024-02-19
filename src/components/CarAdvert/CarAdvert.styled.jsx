@@ -1,14 +1,13 @@
 import styled from 'styled-components';
 
 export const CarContainer = styled.li`
-  position: relative;
   width: 274px;
-  height: 426px;
   list-style: none;
   border-radius: 14px;
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+
   &:hover {
-    scale: 1.01;
+    transform: scale(1.01);
   }
 `;
 
@@ -46,7 +45,6 @@ export const CarImg = styled.img`
   &:hover {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   }
-
 `;
 
 export const TitleWrapper = styled.div`
@@ -64,31 +62,45 @@ export const CarNameAccent = styled.span`
   color: #3470ff;
 `;
 
-export const CarInfoList = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  color: #88898b;
-  margin-bottom: 4px;
-`;
 
 export const CarInfoItem = styled.li`
   font-family: 'Manrope';
   font-size: 12px;
   font-weight: 400;
   line-height: 1.25;
-  padding-right: 6px;
-  padding-left: 6px;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+
   &:not(:last-child) {
+    margin-right: 6px;
+    padding-right: 6px;
     border-right: 2px solid rgba(18, 20, 23, 0.1);
   }
+
+  & > p {
+    
+    text-align: start;
+  }
 `;
+
+
+export const CarInfoList = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  color: #88898b;
+  margin-bottom: 4px;
+  
+`;
+
 
 export const NextCarInfoList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   color: #88898b;
   margin-bottom: 24px;
-`;
+  
+  `;
 
 export const LearnMoreBtn = styled.button`
   background-color: #3470ff;
@@ -117,8 +129,8 @@ export const CarDescription = styled.p`
   font-size: 14px;
   font-weight: 400;
   color: #121417;
-  margin-top: 24px;
-  
+  margin-bottom: 14px;
+  margin-top: 14px;
 `;
 
 export const CardSubtitle = styled.p`
@@ -128,15 +140,24 @@ export const CardSubtitle = styled.p`
   line-height: 1.25;
   color: #121417;
   margin-bottom: 8px;
-  margin-top: 22px;
-  `;
+  text-align: left;
+  display: block;
+  width: 50%;
+`;
+
+
 
 export const RentalConditionsList = styled.ul`
   display: flex;
-  gap: 8px;
   flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-start;
 `;
 
+export const ConditionItemWrapper = styled.div`
+  display: flex;
+  
+`;
 
 export const ConditionItem = styled.li`
   font-family: 'Manrope';

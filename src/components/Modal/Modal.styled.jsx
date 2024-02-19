@@ -14,8 +14,9 @@ export const Overlay = styled.div`
 `;
 
 export const ModalCard = styled.div`
+
   max-width: 541px;
-  max-height: 752px;
+  
   background: #ffffff;
   border-radius: 24px;
   position: absolute;
