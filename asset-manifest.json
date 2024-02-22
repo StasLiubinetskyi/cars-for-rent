@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/cars-for-rent/static/css/main.df358adf.css",
-    "main.js": "/cars-for-rent/static/js/main.92afb090.js",
-    "static/js/956.1dcd0009.chunk.js": "/cars-for-rent/static/js/956.1dcd0009.chunk.js",
+    "main.js": "/cars-for-rent/static/js/main.3b0b1d21.js",
+    "static/js/956.f4643fa0.chunk.js": "/cars-for-rent/static/js/956.f4643fa0.chunk.js",
     "static/js/864.2ef1e428.chunk.js": "/cars-for-rent/static/js/864.2ef1e428.chunk.js",
-    "static/js/476.c9a628f1.chunk.js": "/cars-for-rent/static/js/476.c9a628f1.chunk.js",
+    "static/js/476.873e6530.chunk.js": "/cars-for-rent/static/js/476.873e6530.chunk.js",
     "static/js/264.6065bed5.chunk.js": "/cars-for-rent/static/js/264.6065bed5.chunk.js",
     "static/js/752.16474549.chunk.js": "/cars-for-rent/static/js/752.16474549.chunk.js",
     "static/media/BackgroundImages.jpg": "/cars-for-rent/static/media/BackgroundImages.6f68302448af7990151a.jpg",
@@ -13,15 +13,15 @@
     "index.html": "/cars-for-rent/index.html",
     "static/media/close.svg": "/cars-for-rent/static/media/close.207d302dcbc0e4eda87f4e017e001a6e.svg",
     "main.df358adf.css.map": "/cars-for-rent/static/css/main.df358adf.css.map",
-    "main.92afb090.js.map": "/cars-for-rent/static/js/main.92afb090.js.map",
-    "956.1dcd0009.chunk.js.map": "/cars-for-rent/static/js/956.1dcd0009.chunk.js.map",
+    "main.3b0b1d21.js.map": "/cars-for-rent/static/js/main.3b0b1d21.js.map",
+    "956.f4643fa0.chunk.js.map": "/cars-for-rent/static/js/956.f4643fa0.chunk.js.map",
     "864.2ef1e428.chunk.js.map": "/cars-for-rent/static/js/864.2ef1e428.chunk.js.map",
-    "476.c9a628f1.chunk.js.map": "/cars-for-rent/static/js/476.c9a628f1.chunk.js.map",
+    "476.873e6530.chunk.js.map": "/cars-for-rent/static/js/476.873e6530.chunk.js.map",
     "264.6065bed5.chunk.js.map": "/cars-for-rent/static/js/264.6065bed5.chunk.js.map",
     "752.16474549.chunk.js.map": "/cars-for-rent/static/js/752.16474549.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.df358adf.css",
-    "static/js/main.92afb090.js"
+    "static/js/main.3b0b1d21.js"
   ]
 }
