@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const FavoriteContainer = styled.div`
+export const CatalogPage = styled.div`
 margin-left: 128px;
 margin-top: 50px;
   display: flex;
