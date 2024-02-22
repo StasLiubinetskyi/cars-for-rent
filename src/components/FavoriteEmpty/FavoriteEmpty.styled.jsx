@@ -3,16 +3,17 @@ import { Link } from 'react-router-dom';
 
 export const EmptyContainer = styled.div`
   display: flex;
-  
+  margin-left: 550px ;
 `;
 
 export const EmptyText = styled.p`
   font-size: 24px;
   color: #8a8a89;
   text-align: center;
-  margin-bottom: 20px;
-  width: 100%;
+  margin-left: 270px;
+   
 `;
+
 
 export const StyledCatalogLink = styled(Link)`
  font-size: 24px;

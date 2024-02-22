@@ -13,6 +13,7 @@ export const WrapperHomePage = styled.div`
 `;
 
 export const HomeContainer = styled.div`
+border-radius: 12px;
   display: flex;
   flex-direction: column;
   width: 750px;
