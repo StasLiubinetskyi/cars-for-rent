@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const CarContainer = styled.li`
+  position: relative; 
   width: 274px;
   list-style: none;
   border-radius: 14px;
