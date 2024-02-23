@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import FilterByMake from '../Filter/FilterByMake';
 import CarCard from '../CarAdvert/CarAdvert';
-import { CarsList } from './CarList.styled';
+import { CarsList, CarsListContainer, CarCardWrapper } from './CarList.styled';
 
 const CarList = ({ data }) => {
     const [filteredMake, setFilteredMake] = useState('');
@@ -15,18 +15,20 @@ const CarList = ({ data }) => {
         : data;
 
     return (
-        <div>
+        <CarsListContainer>
             <FilterByMake onFilterChange={handleFilterChange} />
             <CarsList>
                 {filteredCars.length > 0 ? (
                     filteredCars.map((car) => (
-                        <CarCard data={car} key={car.id} />
+                        <CarCardWrapper key={car.id}>
+                            <CarCard data={car} />
+                        </CarCardWrapper>
                     ))
                 ) : (
                     <p>There are no ads for the selected brand</p>
                 )}
             </CarsList>
-        </div>
+        </CarsListContainer>
     );
 };
 

@@ -1,3 +1,4 @@
+
 import styled from 'styled-components';
 import Select from 'react-select';
 
@@ -27,7 +28,9 @@ export const FilterButtonContainer = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 50px;
-  margin-left: 1000px;
+  margin-left: auto; 
+  margin-right: auto; 
+  justify-content: center; 
 
   select {
     width: 224px;

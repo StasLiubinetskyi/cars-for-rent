@@ -1,3 +1,4 @@
+// FilterByMake.js
 import React, { useState } from 'react';
 import Select from 'react-select';
 import makes from '../../data/makes.json';
@@ -20,16 +21,18 @@ const FilterByMake = ({ onFilterChange }) => {
     }));
 
     return (
-        <FilterButtonContainer>
-            <Select
-                value={makesOptions.find((option) => option.value === selectedMake)}
-                onChange={handleMakeChange}
-                options={makesOptions}
-                placeholder="Enter the text"
-                classNamePrefix="select"
-            />
-            <FilterButton onClick={handleFilterClick}>Search</FilterButton>
-        </FilterButtonContainer>
+        <div>
+            <FilterButtonContainer>
+                <Select
+                    value={makesOptions.find((option) => option.value === selectedMake)}
+                    onChange={handleMakeChange}
+                    options={makesOptions}
+                    placeholder="Select a make"
+                    classNamePrefix="select"
+                />
+                <FilterButton onClick={handleFilterClick}>Search</FilterButton>
+            </FilterButtonContainer>
+        </div>
     );
 };
 

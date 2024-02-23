@@ -1,8 +1,12 @@
 import styled from 'styled-components';
 
 export const FavoriteContainer = styled.div`
-margin-left: 128px;
-margin-top: 50px;
+  margin-top: 150px;
   display: flex;
-  gap: 30px;
+  flex-wrap: wrap;
+  gap: 29px;
+  width: 100%;
+  max-width: 1184px;
+  margin-left: auto;
+  margin-right: auto;
 `;

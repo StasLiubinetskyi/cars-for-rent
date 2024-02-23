@@ -3,14 +3,17 @@ import styled from 'styled-components';
 export const CarsList = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 29px;
+  width: 100%;
+  max-width: 1184px;
+  margin: 0 auto;
+`;
 
-  & > p {
-    
-    font-size: 24px;
-  color: #8a8a89;
-  text-align: center;
-  margin-left: 930px;
-   
-  }
+export const CarsListContainer = styled.div`
+  text-align: center; 
+`;
+
+export const CarCardWrapper = styled.div`
+  box-sizing: border-box;
+  text-align: left;
 `;
