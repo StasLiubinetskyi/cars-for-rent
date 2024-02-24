@@ -193,5 +193,6 @@ export const RentalBtn = styled.a`
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
   &:hover {
     background: #0b44cd;
+    text-shadow: 0 0 2px black;
   }
 `;

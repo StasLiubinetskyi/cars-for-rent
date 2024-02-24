@@ -7,6 +7,8 @@ export const CarsList = styled.ul`
   width: 100%;
   max-width: 1184px;
   margin: 0 auto;
+  
+  
 & > p {
       margin: 0 auto;
       }
