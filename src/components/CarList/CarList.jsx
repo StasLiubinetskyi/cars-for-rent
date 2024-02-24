@@ -21,7 +21,9 @@ const CarList = ({ data }) => {
                 {filteredCars.length > 0 ? (
                     filteredCars.map((car) => (
                         <CarCardWrapper key={car.id}>
-                            <CarCard data={car} />
+                            {car.make !== 'There are no ads for the selected brand' && (
+                                <CarCard data={car} />
+                            )}
                         </CarCardWrapper>
                     ))
                 ) : (

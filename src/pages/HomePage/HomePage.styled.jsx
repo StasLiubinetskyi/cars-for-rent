@@ -43,7 +43,7 @@ export const StyledLink = styled(Link)`
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
   color: #3470ff;
 
-  &::hover {
+  &:hover {
     color: #0b44cd;
   }
 
