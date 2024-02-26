@@ -2,18 +2,16 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const EmptyContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-   
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
 
-export const EmptyText = styled.p`
+export const EmptyText = styled.div`
   font-size: 24px;
   color: #8a8a89;
   text-align: center;
-  margin-left: auto;
-  margin-right: auto; 
 `;
 
 export const StyledCatalogLink = styled(Link)`

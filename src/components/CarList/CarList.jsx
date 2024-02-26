@@ -1,13 +1,12 @@
-
 import React, { useState } from 'react';
 import FilterByMake from '../Filter/FilterByMake';
 import CarCard from '../CarAdvert/CarAdvert';
-import CLoadMore from '../LoadMore/LoadMore';
+import LoadMore from '../LoadMore/LoadMore';  // Змінив назву компонента
 import { CarsList, CarsListContainer, CarCardWrapper } from './CarList.styled';
 
 const CarList = ({ data }) => {
     const [filteredMake, setFilteredMake] = useState('');
-    const [visibleAds, setVisibleAds] = useState(12); 
+    const [visibleAds, setVisibleAds] = useState(12);
 
     const handleFilterChange = (make) => {
         setFilteredMake(make);
@@ -32,7 +31,7 @@ const CarList = ({ data }) => {
                 ))}
             </CarsList>
             {visibleAds < filteredCars.length && (
-                <CLoadMore onClick={loadMore} />
+                <LoadMore onClick={loadMore} />
             )}
         </CarsListContainer>
     );

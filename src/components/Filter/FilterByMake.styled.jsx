@@ -27,7 +27,7 @@ export const FilterButton = styled.button`
 export const FilterButtonContainer = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 50px;
+  margin-top: 50px;
   margin-left: auto; 
   margin-right: auto; 
   justify-content: center; 

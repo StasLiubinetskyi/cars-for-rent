@@ -1,4 +1,4 @@
-// FilterByMake.js
+
 import React, { useState } from 'react';
 import Select from 'react-select';
 import makes from '../../data/makes.json';
@@ -27,7 +27,7 @@ const FilterByMake = ({ onFilterChange }) => {
                     value={makesOptions.find((option) => option.value === selectedMake)}
                     onChange={handleMakeChange}
                     options={makesOptions}
-                    placeholder="Select a make"
+                    placeholder="Enter the text"
                     classNamePrefix="select"
                 />
                 <FilterButton onClick={handleFilterClick}>Search</FilterButton>
