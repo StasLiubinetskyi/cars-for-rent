@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ButtonLoadMore, Text } from './LoadMore.styled';
 

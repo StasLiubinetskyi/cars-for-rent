@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import FilterByMake from '../Filter/FilterByMake';
 import CarCard from '../CarAdvert/CarAdvert';
-import LoadMore from '../LoadMore/LoadMore';  // Змінив назву компонента
+import LoadMore from '../LoadMore/LoadMore';
 import { CarsList, CarsListContainer, CarCardWrapper } from './CarList.styled';
 
 const CarList = ({ data }) => {
