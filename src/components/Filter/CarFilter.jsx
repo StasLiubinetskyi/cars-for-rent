@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import Select from 'react-select';
 import makes from '../../data/makes.json';
-import { FilterButton, FilterButtonContainer } from './CarFilter.styled';
+import { FilterButton, FilterButtonContainer, BrandFrame, BrandText, FrameBrand } from './CarFilter.styled';
 
-const FilterByMake = ({ onFilterChange }) => {
+const CarFilter = ({ onFilterChange }) => {
     const [selectedMake, setSelectedMake] = useState('');
 
     const handleMakeChange = (selectedOption) => {
@@ -22,17 +22,22 @@ const FilterByMake = ({ onFilterChange }) => {
     return (
         <div>
             <FilterButtonContainer>
+                <FrameBrand>
+                    <BrandFrame>
+                        <BrandText><p>Car brand</p></BrandText>
+                    </BrandFrame>
                 <Select
                     value={makesOptions.find((option) => option.value === selectedMake)}
                     onChange={handleMakeChange}
                     options={makesOptions}
                     placeholder="Enter the text"
                     classNamePrefix="select"
-                />
+                    />
+                </FrameBrand>
                 <FilterButton onClick={handleFilterClick}>Search</FilterButton>
             </FilterButtonContainer>
         </div>
     );
 };
 
-export default FilterByMake;
+export default CarFilter;

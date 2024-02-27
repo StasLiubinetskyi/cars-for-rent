@@ -60,3 +60,38 @@ export const ModelSelect = styled(Select)`
     height: 48px;
   }
 `;
+
+export const CarBrand = styled.p`
+  color: #8a8a89;
+  font-size: 14px;
+  font-style: normal;
+  font-family: "Manrope",sans-serif;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0;
+  text-transform: none;
+  margin-top: 0;
+  text-align: left;
+  margin-bottom: 0
+  
+`
+
+
+export const BrandFrame = styled.div`
+ margin-top: 0;
+  text-align: left;
+  margin-bottom: 0;
+`;
+
+export const BrandText = styled.div`
+  color: #8a8a89;
+  font-size: 14px;
+  font-style: normal;
+  font-family: "Manrope",sans-serif;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0;
+  text-transform: none;
+`;
+export const FrameBrand = styled.div`
+`;
