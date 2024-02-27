@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Select from 'react-select';
 import makes from '../../data/makes.json';
-import { FilterButton, FilterButtonContainer } from './FilterByMake.styled';
+import { FilterButton, FilterButtonContainer } from './CarFilter.styled';
 
 const FilterByMake = ({ onFilterChange }) => {
     const [selectedMake, setSelectedMake] = useState('');

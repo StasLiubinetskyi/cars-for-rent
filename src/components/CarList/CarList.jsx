@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import FilterByMake from '../Filter/FilterByMake';
+import FilterByMake from '../Filter/CarFilter';
 import CarCard from '../CarAdvert/CarAdvert';
 import LoadMore from '../LoadMore/LoadMore';
-import { CarsList, CarsListContainer, CarCardWrapper } from './CarList.styled';
+import { CarsList, CarsListContainer, CarCardWrapper, NoResultsMessage } from './CarList.styled';
 
 const CarList = ({ data }) => {
     const [filteredMake, setFilteredMake] = useState('');
@@ -24,11 +24,15 @@ const CarList = ({ data }) => {
         <CarsListContainer>
             <FilterByMake onFilterChange={handleFilterChange} />
             <CarsList>
-                {filteredCars.slice(0, visibleAds).map((car) => (
-                    <CarCardWrapper key={car.id}>
-                        <CarCard data={car} />
-                    </CarCardWrapper>
-                ))}
+                {filteredCars.length === 0 ? (
+                    <NoResultsMessage>No cars found for the selected make.</NoResultsMessage>
+                ) : (
+                    filteredCars.slice(0, visibleAds).map((car) => (
+                        <CarCardWrapper key={car.id}>
+                            <CarCard data={car} />
+                        </CarCardWrapper>
+                    ))
+                )}
             </CarsList>
             {visibleAds < filteredCars.length && (
                 <LoadMore onClick={loadMore} />

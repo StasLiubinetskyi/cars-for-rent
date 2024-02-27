@@ -10,10 +10,9 @@ export const CarsList = styled.ul`
   margin-top: 50px;
   margin-bottom: 100px;
   
-& > p {
-      margin: 0 auto;
-      }
-  
+  & > p {
+    margin: 0 auto;
+  }
 `;
 
 export const CarsListContainer = styled.div`
@@ -23,6 +22,10 @@ export const CarsListContainer = styled.div`
 export const CarCardWrapper = styled.div`
   box-sizing: border-box;
   text-align: left;
+`;
 
- 
+export const NoResultsMessage = styled.p`
+  font-size: 18px;
+  color: red;
+  margin: 20px 0;
 `;
