@@ -1,38 +1,47 @@
 import React, { useState } from 'react';
-import Select from 'react-select';
 import makes from '../../data/makes.json';
-import { FilterButton, FilterButtonContainer, BrandFrame, BrandText, FrameBrand } from './CarFilter.styled';
+import {
+    FilterButton,
+    FilterButtonContainer,
+    BrandFrame,
+    BrandText,
+    FrameBrand,
+    SelectStyled,
+} from './CarFilter.styled';
 
 const CarFilter = ({ onFilterChange }) => {
     const [selectedMake, setSelectedMake] = useState('');
 
-    const handleMakeChange = (selectedOption) => {
-        setSelectedMake(selectedOption.value);
+    const handleMakeChange = (event) => {
+        setSelectedMake(event.target.value);
     };
 
     const handleFilterClick = () => {
         onFilterChange(selectedMake);
     };
 
-    const makesOptions = makes.map((make, index) => ({
-        value: make,
-        label: make,
-    }));
+    const makesOptions = makes.map((make, index) => (
+        <option key={index} value={make}>
+            {make}
+        </option>
+    ));
 
     return (
         <div>
             <FilterButtonContainer>
                 <FrameBrand>
                     <BrandFrame>
-                        <BrandText><p>Car brand</p></BrandText>
+                        <BrandText>
+                            <p>Car brand</p>
+                        </BrandText>
                     </BrandFrame>
-                <Select
-                    value={makesOptions.find((option) => option.value === selectedMake)}
-                    onChange={handleMakeChange}
-                    options={makesOptions}
-                    placeholder="Enter the text"
-                    classNamePrefix="select"
-                    />
+                    <SelectStyled
+                        value={selectedMake}
+                        onChange={handleMakeChange}
+                        placeholder="Enter the text"
+                    >
+                        {makesOptions}
+                    </SelectStyled>
                 </FrameBrand>
                 <FilterButton onClick={handleFilterClick}>Search</FilterButton>
             </FilterButtonContainer>
