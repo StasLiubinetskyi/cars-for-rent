@@ -19,7 +19,7 @@ This project is a web application for a company providing car rental services in
 
 ## How to Run
 
-1. Clone the repository: `git clone https://github.com/your-username/car-rental-app.git`
+1. Clone the repository: `git clone https://github.com/StasLiubinetskyi/car-rental-app.git`
 2. Install dependencies: `npm install`
 3. Run the application: `npm start`
 
