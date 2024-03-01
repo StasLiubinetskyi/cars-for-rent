@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import FilterByMake from '../Filter/CarFilter';
+import FilterByMake from '../Filter/CarFilter/CarFilter';
 import CarCard from '../CarAdvert/CarAdvert';
 import LoadMore from '../LoadMore/LoadMore';
 import { CarsList, CarsListContainer, CarCardWrapper, NoResultsMessage } from './CarList.styled';

@@ -1,3 +1,4 @@
+
 import styled from 'styled-components';
 
 export const FilterButton = styled.button`
@@ -29,7 +30,8 @@ export const FilterButtonContainer = styled.div`
     margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
-    justify-content: center;
+    max-width: 600px; 
+    justify-content: space-evenly
 `;
 
 export const SelectStyled = styled.select`
@@ -84,3 +86,42 @@ export const BrandText = styled.div`
 `;
 
 export const FrameBrand = styled.div``;
+
+export const PriceSelectStyled = styled.select`
+    gap: 32px;
+    width: 100%;
+    display: flex;
+    padding: 14px 28px;
+    position: relative;
+    max-width: 125px;
+    box-sizing: border-box;
+    align-items: center;
+    border-radius: 14px 14px 14px 14px;
+    justify-content: center;
+    background-color: #f7f7fb;
+
+    &:hover,
+    &:focus {
+        outline: none;
+    }
+`;
+
+export const PriceSelectContainer = styled.div`
+    display: grid;
+    align-items: center;
+`;
+
+export const PriceText = styled.div`
+  margin-top: 0;
+  text-align: left;
+  margin-bottom: 0;
+  color: #8a8a89;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-style: normal;
+  font-family: "Manrope",sans-serif;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0;
+  text-transform: none;
+`;
