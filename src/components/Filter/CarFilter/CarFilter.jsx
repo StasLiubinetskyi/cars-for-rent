@@ -3,14 +3,12 @@ import makes from '../../../data/makes.json';
 
 import {
     FilterButton,
-    FilterButtonContainer,
-    BrandFrame,
-    BrandText,
-    FrameBrand,
+    FilterContainer,
+    TextFrame,
     SelectStyled,
-    PriceSelectContainer,
-    PriceText,
     PriceSelectStyled,
+    SelectContainer,
+    MileageSelectStyled
 } from './CarFilter.styled';
 
 const CarFilter = ({ onFilterChange, onPriceChange }) => {
@@ -42,57 +40,67 @@ const CarFilter = ({ onFilterChange, onPriceChange }) => {
     ));
 
     return (
-        <div>
-            <FilterButtonContainer>
-                <FrameBrand>
-                    <BrandFrame>
-                        <BrandText>
-                            <p>Car brand</p>
-                        </BrandText>
-                    </BrandFrame>
-                    <SelectStyled
-                        value={selectedMake}
-                        onChange={handleMakeChange}
-                    >
-                        <option value="" disabled hidden>
-                            Enter the text
-                        </option>
-                        {makesOptions}
-                    </SelectStyled>
-                </FrameBrand>
-                <PriceSelectContainer>
-                    <PriceText>
-                        <p>Price/ 1 hour</p>
-                    </PriceText>
-                    <PriceSelectStyled
-                        value={selectedPrice}
-                        onChange={handlePriceChange}
-                    >
-                        <option value="" disabled hidden>
-                            To $
-                        </option>
-                        <option value="all">All</option>
-                        {[...Array(50).keys()].map((price) => (
-                            <option key={price + 1} value={(price + 1) * 5}>
-                                {(price + 1) * 5} $
-                            </option>
-                        ))}
-                    </PriceSelectStyled>
-                </PriceSelectContainer>
+        <FilterContainer>
+            <SelectContainer>
+                <TextFrame>
+                    <p>Car brand</p>
+                </TextFrame>
+                <SelectStyled
+                    value={selectedMake}
+                    onChange={handleMakeChange}
+                >
+                    <option value="" disabled hidden>
+                        Enter the text
+                    </option>
+                    {makesOptions}
+                </SelectStyled>
+            </SelectContainer>
 
-                <div>
-                    <BrandText htmlFor="simpleInput">Сar mileage / km</BrandText>
+            <SelectContainer>
+                <TextFrame>
+                    <p>Price / 1 hour</p>
+                </TextFrame>
+                <PriceSelectStyled
+                    value={selectedPrice}
+                    onChange={handlePriceChange}
+                >
+                    <option value="" disabled hidden>
+                        To $
+                    </option>
+                    <option value="all">All</option>
+                    {[...Array(50).keys()].map((price) => (
+                        <option key={price + 1} value={(price + 1) * 5}>
+                            {(price + 1) * 5} $
+                        </option>
+                    ))}
+                </PriceSelectStyled>
+            </SelectContainer>
+
+            <SelectContainer>
+                <TextFrame>
+                    <p>Car mileage / km </p>
+                </TextFrame>
+                <MileageSelectStyled>
                     <input
-                        type="text"
+                        type="number"
+                        id="simpleInput"
+                        value={inputValue}
+                        onChange={handleInputChange}
+
+                    />
+                </MileageSelectStyled>
+                <MileageSelectStyled>
+                    <input
+                        type="number"
                         id="simpleInput"
                         value={inputValue}
                         onChange={handleInputChange}
                     />
+                </MileageSelectStyled>
+            </SelectContainer>
 
-                </div>
-                <FilterButton onClick={handleFilterClick}>Search</FilterButton>
-            </FilterButtonContainer>
-        </div>
+            <FilterButton onClick={handleFilterClick}>Search</FilterButton>
+        </FilterContainer >
     );
 };
 
