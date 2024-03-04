@@ -19,7 +19,7 @@
     "react-select": "^5.8.0",
     "react-toastify": "^10.0.4",
     "redux-persist": "^6.0.0",
-    "styled-components": "^5.3.10",
+    "styled-components": "^5.3.11",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
