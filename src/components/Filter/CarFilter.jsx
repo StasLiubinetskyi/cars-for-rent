@@ -13,7 +13,7 @@ import {
     FirstInput,
 } from './CarFilter.styled';
 
-const CarFilter = ({ onFilterChange, onPriceChange }) => {
+const CarFilter = ({ onFilterChange }) => {
     const [selectedMake, setSelectedMake] = useState('');
     const [selectedPrice, setSelectedPrice] = useState('');
     const [minMileage, setMinMileage] = useState('');
@@ -37,6 +37,10 @@ const CarFilter = ({ onFilterChange, onPriceChange }) => {
     };
 
     const handleFilterClick = () => {
+        console.log('Selected Make:', selectedMake);
+        console.log('Selected Price:', selectedPrice);
+        console.log('Min Mileage:', minMileage);
+        console.log('Max Mileage:', maxMileage);
         onFilterChange(selectedMake, selectedPrice, minMileage, maxMileage);
     };
 
@@ -51,6 +55,8 @@ const CarFilter = ({ onFilterChange, onPriceChange }) => {
         }
         return priceOptions;
     };
+
+
 
     const makesOptions = makes.map((make, index) => (
         <option key={index} value={make}>
@@ -80,7 +86,7 @@ const CarFilter = ({ onFilterChange, onPriceChange }) => {
                     <option value="" disabled hidden>
                         To $
                     </option>
-                    <option value="all">Усі</option>
+                    <option value="all">All</option>
                     {generatePriceOptions()}
                 </PriceSelectStyled>
             </SelectContainer>
