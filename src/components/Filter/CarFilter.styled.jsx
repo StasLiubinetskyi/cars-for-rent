@@ -24,8 +24,8 @@ export const FilterButton = styled.button`
   font-size: 14px;
   font-weight: 500;
   line-height: 1.43;
-  width: 126px;
-  height: 47px;
+  width: 136px;
+  height: 48px;
   border: transparent;
   border-radius: 12px;
   margin: 0 18px;
@@ -57,8 +57,9 @@ export const TextFrame = styled.div`
 
 export const SelectStyled = styled.select`
   gap: 32px;
-  
   display: flex;
+  width: 224px;
+  height: 48px;
   padding: 14px 89px 14px 18px;
   position: relative;
   box-sizing: border-box;
@@ -68,28 +69,25 @@ export const SelectStyled = styled.select`
   justify-content: center;
   background-color: #f7f7fb;
   
- &:option 
-color: #121417; 
-  font-size: 18px;
-  font-family: "Manrope", sans-serif;
-  font-weight: 500;
+  & option {
+  font-size: 16px;
+  }
 
   &:hover,
   &:focus {
     outline: none;
   }
-
 `;
 
 
 
 export const PriceSelectStyled = styled.select`
   gap: 32px;
- 
   display: flex;
   padding: 14px 28px;
   position: relative;
-  max-width: 125px;
+  width: 125px;
+  height: 48px;
   border: 0px solid #ccc;
   border-radius: 14px 14px 14px 14px;
   box-sizing: border-box;
@@ -107,7 +105,7 @@ export const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 18px;
-  margin-top: 6px;
+    
 `;
 
 const commonInputStyles = `
@@ -117,7 +115,7 @@ const commonInputStyles = `
   width: 160px;
   height: 48px;
   background-color: #f7f7fb;
-  overflow: hidden;
+
 
   &:hover,
   &:focus {
@@ -138,13 +136,7 @@ export const SecondInput = styled.input`
 `;
 
 export const MileageSelectStyled = styled.div`
-  margin-bottom: 10px;
-  max-width: 320px;
-  max-height: 47px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
+  
   ${FirstInput},
   ${SecondInput} {
     margin-right: 0px;

@@ -64,10 +64,7 @@ const CarFilter = ({ onFilterChange, onPriceChange }) => {
                 <TextFrame>
                     <p>Car brand</p>
                 </TextFrame>
-                <SelectStyled
-                    value={selectedMake}
-                    onChange={handleMakeChange}
-                >
+                <SelectStyled value={selectedMake} onChange={handleMakeChange}>
                     <option value="" disabled hidden>
                         Enter the text
                     </option>
@@ -83,7 +80,7 @@ const CarFilter = ({ onFilterChange, onPriceChange }) => {
                     <option value="" disabled hidden>
                         To $
                     </option>
-                    <option value="all">All</option>
+                    <option value="all">Усі</option>
                     {generatePriceOptions()}
                 </PriceSelectStyled>
             </SelectContainer>
