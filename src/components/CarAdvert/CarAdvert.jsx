@@ -1,4 +1,9 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectFavorite } from '../../redux/favorite/selectorsFavorite';
+import heartfillIcon from '../../data/svg/heartFill.svg';
+import heartIcon from '../../data/svg/heart.svg';
+import plug from '../../data/img/plug.jpg';
 import {
   AccentItem,
   BtnFavorite,
@@ -7,6 +12,7 @@ import {
   CarImg,
   CarInfoItem,
   CarInfoList,
+  CarInfoListModal,
   CarNameAccent,
   CardSubtitle,
   ConditionItem,
@@ -16,18 +22,13 @@ import {
   RentalBtn,
   RentalConditionsList,
   TitleWrapper,
-  ConditionItemWrapper
+  ConditionItemWrapper,
 } from './CarAdvert.styled';
 import Modal from '../Modal/Modal';
 import {
   addToFavorite,
   removeFromFavorite,
 } from '../../redux/favorite/sliceFavorite';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectFavorite } from '../../redux/favorite/selectorsFavorite';
-import heartfillIcon from '../../data/svg/heartFill.svg';
-import heartIcon from '../../data/svg/heart.svg';
-import plug from '../../data/img/plug.jpg';
 
 const AdvertCar = ({ data }) => {
   const {
@@ -37,8 +38,7 @@ const AdvertCar = ({ data }) => {
     model,
     year,
     rentalPrice,
-    city,
-    country,
+    address,
     rentalCompany,
     type,
     functionalities,
@@ -70,6 +70,10 @@ const AdvertCar = ({ data }) => {
     }
   };
 
+  const [country, city] = address.split(', ').reverse().slice(0, 2);
+
+  const modelFirst = data.model.split(' ')[0];
+
   const formatMileage = mileage => {
     return mileage.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   };
@@ -84,23 +88,21 @@ const AdvertCar = ({ data }) => {
             </FavoriteSvg>
           ) : (
             <FavoriteSvg>
-                <use href={`${heartIcon}#heart`} />
+              <use href={`${heartIcon}#heart`} />
             </FavoriteSvg>
-          )}
+          )}{' '}
         </BtnFavorite>
-        {img && <CarImg
-          src={img}
-          alt={`${make} ${model}`}
-          width={274}
-          height={268}
-          onError={(e) => {
-            e.target.classList.add("no-image");
-            e.target.src = plug;
-          }}
-        />}
+        {
+          <CarImg
+            src={img || plug}
+            alt={'Image not available'}
+            width={274}
+            height={268}
+          />
+        }
         <TitleWrapper>
           <p>
-            {make} <CarNameAccent>{model}</CarNameAccent>, {year}{' '}
+            {make} <CarNameAccent>{modelFirst}</CarNameAccent>, {year}{' '}
           </p>
           {!showModal && rentalPrice}
         </TitleWrapper>
@@ -108,29 +110,25 @@ const AdvertCar = ({ data }) => {
           <CarInfoItem>{city}</CarInfoItem>
           <CarInfoItem>{country}</CarInfoItem>
           <CarInfoItem>{rentalCompany}</CarInfoItem>
-        </CarInfoList>
-        <NextCarInfoList>
           <CarInfoItem>{type}</CarInfoItem>
           <CarInfoItem>{make}</CarInfoItem>
           <CarInfoItem>{id}</CarInfoItem>
           <CarInfoItem>{functionalities[0]}</CarInfoItem>
-        </NextCarInfoList>
+        </CarInfoList>
         <LearnMoreBtn type="button" onClick={handleOpenModal}>
           Learn more
         </LearnMoreBtn>
       </CarContainer>
       {showModal && (
         <Modal onClose={handleCloseModal}>
-          {img && <CarImg
-            src={img}
-            alt={`${make} ${model}`}
-            width={461}
-            height={248}
-            onError={(e) => {
-              e.target.classList.add("no-image");
-              e.target.src = plug;
-            }}
-          />}
+          {
+            <CarImg
+              src={img || plug}
+              alt={'Image not available'}
+              width={461}
+              height={248}
+            />
+          }
           <TitleWrapper>
             <p>
               {make} <CarNameAccent>{model}</CarNameAccent>, {year}{' '}
@@ -138,13 +136,13 @@ const AdvertCar = ({ data }) => {
             {!showModal && rentalPrice}
           </TitleWrapper>
 
-          <CarInfoList>
+          <CarInfoListModal>
             <CarInfoItem>{city}</CarInfoItem>
             <CarInfoItem>{country}</CarInfoItem>
             <CarInfoItem>Id: {id}</CarInfoItem>
             <CarInfoItem>Year: {year}</CarInfoItem>
             <CarInfoItem>Type: {type}</CarInfoItem>
-          </CarInfoList>
+          </CarInfoListModal>
 
           <NextCarInfoList>
             <CarInfoItem>Fuel Consumption: {fuelConsumption}</CarInfoItem>
@@ -152,11 +150,11 @@ const AdvertCar = ({ data }) => {
             <CarDescription>{description}</CarDescription>
             <CardSubtitle>Accessories and functionalities:</CardSubtitle>
 
-            <CarInfoList>
+            <CarInfoListModal>
               {accessories.map(item => (
                 <CarInfoItem key={item}>{item}</CarInfoItem>
               ))}
-            </CarInfoList>
+            </CarInfoListModal>
 
             <NextCarInfoList>
               {functionalities.map(item => (
@@ -168,24 +166,24 @@ const AdvertCar = ({ data }) => {
             <RentalConditionsList>
               <ConditionItemWrapper>
                 <ConditionItem>
-                  {rentalConditions[0].match(/\d/g) ? (
-                    <>
-                      Minimum age :{' '}
-                      <AccentItem>{rentalConditions[0].match(/\d/g).join('')}</AccentItem>
-                    </>
-                  ) : (
-                    rentalConditions[0]
-                  )}
+                  Minimum age :{' '}
+                  <AccentItem>
+                    {rentalConditions.split('\n')[0].match(/\d+/)}
+                  </AccentItem>
                 </ConditionItem>
-                <ConditionItem>{rentalConditions[1]}</ConditionItem>
+
+                <ConditionItem>{rentalConditions.split('\n')[1]}</ConditionItem>
               </ConditionItemWrapper>
+
               <ConditionItemWrapper>
-                <ConditionItem>{rentalConditions[2]}</ConditionItem>
+                <ConditionItem>{rentalConditions.split('\n')[2]}</ConditionItem>
+
                 <ConditionItem>
                   Mileage: <AccentItem>{formatMileage(mileage)}</AccentItem>
                 </ConditionItem>
                 <ConditionItem>
-                  Price: <AccentItem>{rentalPrice.replace('$', '') + '$'}</AccentItem>
+                  Price:{' '}
+                  <AccentItem>{rentalPrice.replace('$', '') + '$'}</AccentItem>
                 </ConditionItem>
               </ConditionItemWrapper>
             </RentalConditionsList>

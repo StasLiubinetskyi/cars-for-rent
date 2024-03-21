@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const CarContainer = styled.li`
   position: relative; 
   width: 274px;
+  
   list-style: none;
   border-radius: 14px;
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
@@ -40,7 +41,6 @@ export const CarImg = styled.img`
   border-radius: 14px;
   object-fit: cover;
   object-position: center;
-  margin-bottom: 14px;
   transition: box-shadow 250ms;
   
   &:hover {
@@ -49,6 +49,9 @@ export const CarImg = styled.img`
 `;
 
 export const TitleWrapper = styled.div`
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -56,7 +59,7 @@ export const TitleWrapper = styled.div`
   font-size: 16px;
   font-weight: 500;
   color: #121417;
-  margin-bottom: 8px;
+  margin-top:14px;
 `;
 
 export const CarNameAccent = styled.span`
@@ -69,9 +72,9 @@ export const CarInfoItem = styled.li`
   font-size: 12px;
   font-weight: 400;
   line-height: 1.25;
-  margin-bottom: 4px;
   display: flex;
   align-items: center;
+margin-top:8px;
 
   &:not(:last-child) {
     margin-right: 6px;
@@ -80,27 +83,32 @@ export const CarInfoItem = styled.li`
   }
 
   & > p {
-    
     text-align: start;
   }
 `;
 
-
 export const CarInfoList = styled.ul`
+  height: 50px;
   display: flex;
   flex-wrap: wrap;
+  overflow: hidden;
   color: #88898b;
-  margin-bottom: 4px;
   
-`;
+   `;
 
+export const CarInfoListModal = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  color: #88898b;
+  
+   `;
 
 export const NextCarInfoList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   color: #88898b;
-  margin-bottom: 24px;
-  
+
   `;
 
 export const LearnMoreBtn = styled.button`
@@ -114,12 +122,12 @@ export const LearnMoreBtn = styled.button`
   height: 44px;
   border: transparent;
   border-radius: 12px;
-  margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  margin-top: 28px;
   &:hover {
     background-color: #0b44cd;
   }
@@ -130,23 +138,22 @@ export const CarDescription = styled.p`
   font-size: 14px;
   font-weight: 400;
   color: #121417;
-  margin-bottom: 14px;
+  
   margin-top: 14px;
 `;
 
 export const CardSubtitle = styled.p`
   font-family: 'Manrope';
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
   line-height: 1.25;
   color: #121417;
-  margin-bottom: 8px;
+  margin-top: 24px;
   text-align: left;
   display: block;
   width: 50%;
+  margin-bottom: 14px;
 `;
-
-
 
 export const RentalConditionsList = styled.ul`
   display: flex;
@@ -157,8 +164,7 @@ export const RentalConditionsList = styled.ul`
 
 export const ConditionItemWrapper = styled.div`
   display: flex;
-  
-`;
+  `;
 
 export const ConditionItem = styled.li`
   font-family: 'Manrope';
@@ -191,6 +197,7 @@ export const RentalBtn = styled.a`
   border-radius: 12px;
   cursor: pointer;
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  margin-top: 24px;
   &:hover {
     background: #0b44cd;
     text-shadow: 0 0 2px black;
