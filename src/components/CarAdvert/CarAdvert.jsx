@@ -72,7 +72,7 @@ const AdvertCar = ({ data }) => {
 
   const [country, city] = address.split(', ').reverse().slice(0, 2);
 
-  const modelFirst = data.model.split(' ')[0];
+  const modelFirst = model.split(' ')[0];
 
   const formatMileage = mileage => {
     return mileage.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
