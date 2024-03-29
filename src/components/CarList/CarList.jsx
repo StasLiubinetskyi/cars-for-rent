@@ -19,19 +19,23 @@ const CarList = ({ data }) => {
     setFilteredPrice(price);
   };
 
+  const loadMore = () => {
+    setVisibleAds(prevVisibleAds => prevVisibleAds + 12);
+  };
+
   const filteredCars = data.filter(car => {
     if (filteredMake && car.make !== filteredMake) {
       return false;
     }
-    if (filteredPrice && car.rentalPrice !== filteredPrice) {
+    if (
+      filteredPrice !== '' &&
+      (parseFloat(car.rentalPrice) < parseFloat(filteredPrice) ||
+        parseFloat(car.rentalPrice) > parseFloat(filteredPrice))
+    ) {
       return false;
     }
     return true;
   });
-
-  const loadMore = () => {
-    setVisibleAds(prevVisibleAds => prevVisibleAds + 12);
-  };
 
   return (
     <CarsListContainer>

@@ -19,20 +19,8 @@ const CarFilter = ({ onFilterChange }) => {
   const [minMileage, setMinMileage] = useState('');
   const [maxMileage, setMaxMileage] = useState('');
 
-  const handleMakeChange = event => {
-    setSelectedMake(event.target.value);
-  };
-
-  const handlePriceChange = event => {
-    setSelectedPrice(event.target.value);
-  };
-
-  const handleMinMileageChange = event => {
-    setMinMileage(event.target.value);
-  };
-
-  const handleMaxMileageChange = event => {
-    setMaxMileage(event.target.value);
+  const handleInputChange = setter => event => {
+    setter(event.target.value);
   };
 
   const handleFilterClick = () => {
@@ -62,20 +50,22 @@ const CarFilter = ({ onFilterChange }) => {
         <TextFrame>
           <p>Car brand</p>
         </TextFrame>
-        <SelectStyled value={selectedMake} onChange={handleMakeChange}>
-          <option value="" disabled hidden>
-            Enter the text
-          </option>
+        <SelectStyled
+          value={selectedMake}
+          onChange={handleInputChange(setSelectedMake)}
+        >
+          <option value="">Enter the text</option>
           {makesOptions}
         </SelectStyled>
       </SelectContainer>
 
       <SelectContainer>
         <TextFrame>Price / 1 hour</TextFrame>
-        <PriceSelectStyled value={selectedPrice} onChange={handlePriceChange}>
-          <option value="" disabled hidden>
-            To $
-          </option>
+        <PriceSelectStyled
+          value={selectedPrice}
+          onChange={handleInputChange(setSelectedPrice)}
+        >
+          <option value="">To $</option>
           {generatePriceOptions().map(option => (
             <option key={option.value} value={option.value}>
               {option.label}
@@ -92,14 +82,14 @@ const CarFilter = ({ onFilterChange }) => {
             id="FirstInput"
             placeholder="From"
             value={minMileage}
-            onChange={handleMinMileageChange}
+            onChange={handleInputChange(setMinMileage)}
           />
           <SecondInput
             type="number"
             id="SecondInput"
             placeholder="To"
             value={maxMileage}
-            onChange={handleMaxMileageChange}
+            onChange={handleInputChange(setMaxMileage)}
           />
         </MileageSelectStyled>
       </InputContainer>

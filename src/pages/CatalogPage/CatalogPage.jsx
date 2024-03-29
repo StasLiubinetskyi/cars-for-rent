@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { getAllCars } from '../../redux/cars/operationsCars';
 import CarList from '../../components/CarList/CarList';
 
-const Catalog = () => {
+const CataloPage = () => {
   const cars = useSelector(selectCars);
   const [page] = useState(1);
   const dispatch = useDispatch();
@@ -20,4 +20,4 @@ const Catalog = () => {
   );
 };
 
-export default Catalog;
+export default CataloPage;

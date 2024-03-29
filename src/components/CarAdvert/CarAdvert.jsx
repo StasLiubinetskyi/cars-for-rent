@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectFavorite } from '../../redux/favorite/selectorsFavorite';
+import {
+  addToFavorite,
+  removeFromFavorite,
+} from '../../redux/favorite/sliceFavorite';
 import heartfillIcon from '../../data/svg/heartFill.svg';
 import heartIcon from '../../data/svg/heart.svg';
 import plug from '../../data/img/plug.jpg';
+import Modal from '../Modal/Modal';
 import {
   AccentItem,
   BtnFavorite,
@@ -24,11 +29,6 @@ import {
   TitleWrapper,
   ConditionItemWrapper,
 } from './CarAdvert.styled';
-import Modal from '../Modal/Modal';
-import {
-  addToFavorite,
-  removeFromFavorite,
-} from '../../redux/favorite/sliceFavorite';
 
 const AdvertCar = ({ data }) => {
   const {
@@ -63,7 +63,8 @@ const AdvertCar = ({ data }) => {
   };
 
   const chooseFavorite = data => {
-    if (!favorite.some(car => car.id === data.id)) {
+    const isFavorite = favorite.some(car => car.id === data.id);
+    if (!isFavorite) {
       dispatch(addToFavorite(data));
     } else {
       dispatch(removeFromFavorite(data));
@@ -71,7 +72,6 @@ const AdvertCar = ({ data }) => {
   };
 
   const [country, city] = address.split(', ').reverse().slice(0, 2);
-
   const modelFirst = model.split(' ')[0];
 
   const formatMileage = mileage => {
@@ -82,27 +82,25 @@ const AdvertCar = ({ data }) => {
     <>
       <CarContainer key={id}>
         <BtnFavorite type="button" onClick={() => chooseFavorite(data)}>
-          {favorite.some(car => car.id === data.id) ? (
-            <FavoriteSvg>
-              <use href={`${heartfillIcon}#heart`} />
-            </FavoriteSvg>
-          ) : (
-            <FavoriteSvg>
-              <use href={`${heartIcon}#heart`} />
-            </FavoriteSvg>
-          )}{' '}
+          <FavoriteSvg>
+            <use
+              href={`${
+                favorite.some(car => car.id === data.id)
+                  ? heartfillIcon
+                  : heartIcon
+              }#heart`}
+            />
+          </FavoriteSvg>
         </BtnFavorite>
-        {
-          <CarImg
-            src={img || plug}
-            alt={'Image not available'}
-            width={274}
-            height={268}
-          />
-        }
+        <CarImg
+          src={img || plug}
+          alt={'Image not available'}
+          width={274}
+          height={268}
+        />
         <TitleWrapper>
           <p>
-            {make} <CarNameAccent>{modelFirst}</CarNameAccent>, {year}{' '}
+            {make} <CarNameAccent>{modelFirst}</CarNameAccent>, {year}
           </p>
           {!showModal && rentalPrice}
         </TitleWrapper>
@@ -121,21 +119,18 @@ const AdvertCar = ({ data }) => {
       </CarContainer>
       {showModal && (
         <Modal onClose={handleCloseModal}>
-          {
-            <CarImg
-              src={img || plug}
-              alt={'Image not available'}
-              width={461}
-              height={248}
-            />
-          }
+          <CarImg
+            src={img || plug}
+            alt={'Image not available'}
+            width={461}
+            height={248}
+          />
           <TitleWrapper>
             <p>
-              {make} <CarNameAccent>{model}</CarNameAccent>, {year}{' '}
+              {make} <CarNameAccent>{model}</CarNameAccent>, {year}
             </p>
             {!showModal && rentalPrice}
           </TitleWrapper>
-
           <CarInfoListModal>
             <CarInfoItem>{city}</CarInfoItem>
             <CarInfoItem>{country}</CarInfoItem>
@@ -143,25 +138,21 @@ const AdvertCar = ({ data }) => {
             <CarInfoItem>Year: {year}</CarInfoItem>
             <CarInfoItem>Type: {type}</CarInfoItem>
           </CarInfoListModal>
-
           <NextCarInfoList>
             <CarInfoItem>Fuel Consumption: {fuelConsumption}</CarInfoItem>
             <CarInfoItem>Engine Size: {engineSize}</CarInfoItem>
             <CarDescription>{description}</CarDescription>
             <CardSubtitle>Accessories and functionalities:</CardSubtitle>
-
             <CarInfoListModal>
               {accessories.map(item => (
                 <CarInfoItem key={item}>{item}</CarInfoItem>
               ))}
             </CarInfoListModal>
-
             <NextCarInfoList>
               {functionalities.map(item => (
                 <CarInfoItem key={item}>{item}</CarInfoItem>
               ))}
             </NextCarInfoList>
-
             <CardSubtitle> Rental Conditions:</CardSubtitle>
             <RentalConditionsList>
               <ConditionItemWrapper>
@@ -171,13 +162,10 @@ const AdvertCar = ({ data }) => {
                     {rentalConditions.split('\n')[0].match(/\d+/)}
                   </AccentItem>
                 </ConditionItem>
-
                 <ConditionItem>{rentalConditions.split('\n')[1]}</ConditionItem>
               </ConditionItemWrapper>
-
               <ConditionItemWrapper>
                 <ConditionItem>{rentalConditions.split('\n')[2]}</ConditionItem>
-
                 <ConditionItem>
                   Mileage: <AccentItem>{formatMileage(mileage)}</AccentItem>
                 </ConditionItem>
