@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import makes from '../../data/makes.json';
+import prices from '../../data/prices.json';
 import {
   FilterButton,
   FilterContainer,
@@ -27,20 +28,15 @@ const CarFilter = ({ onFilterChange }) => {
     onFilterChange(selectedMake, selectedPrice, minMileage, maxMileage);
   };
 
-  const generatePriceOptions = () => {
-    const priceOptions = [];
-    for (let price = 1; price <= 50; price++) {
-      priceOptions.push({
-        value: price * 5,
-        label: `${price * 5} $`,
-      });
-    }
-    return priceOptions;
-  };
-
   const makesOptions = makes.map((make, index) => (
     <option key={index} value={make}>
       {make}
+    </option>
+  ));
+
+  const priceOptions = prices.map(price => (
+    <option key={price.value} value={price.value}>
+      {price.label}
     </option>
   ));
 
@@ -66,11 +62,7 @@ const CarFilter = ({ onFilterChange }) => {
           onChange={handleInputChange(setSelectedPrice)}
         >
           <option value="">To $</option>
-          {generatePriceOptions().map(option => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
+          {priceOptions}
         </PriceSelectStyled>
       </SelectContainer>
 
