@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import backgroundImage from '../../data/img/backgroundImages.jpg';
+import backgroundImage from '../../data/img/BackgroundImages.jpg';
 
 export const WrapperHomePage = styled.div`
   display: flex;
