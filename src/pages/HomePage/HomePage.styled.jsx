@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import backgroundImage from '../../data/img/BackgroundImages.jpg';
+import backgroundImage from '../../data/img/backgroundImages.jpg';
 
 export const WrapperHomePage = styled.div`
   display: flex;
@@ -13,15 +13,15 @@ export const WrapperHomePage = styled.div`
 `;
 
 export const HomeContainer = styled.div`
-border-radius: 12px;
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
   width: 750px;
   gap: 25px;
   margin: auto;
   backdrop-filter: blur(30px);
-  box-shadow: 0 0 10px rgba(0, 0, 0, .3);
-  background: rgba(255, 255, 255, 0.1); 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.1);
   padding: 25px;
 `;
 

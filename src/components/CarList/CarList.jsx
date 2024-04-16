@@ -44,7 +44,7 @@ const CarList = ({ data }) => {
 
   return (
     <CarsListContainer>
-      <CarFilter onFilterChange={handleFilterChange} />{' '}
+      <CarFilter onFilterChange={handleFilterChange} />
       <CarsList>
         {filteredCars.length === 0 ? (
           <NoResultsMessage>

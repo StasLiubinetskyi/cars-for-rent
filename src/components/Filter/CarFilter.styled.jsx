@@ -3,9 +3,7 @@ import styled from 'styled-components';
 export const FilterContainer = styled.div`
   display: flex;
   align-items: center;
-  margin-top: 50px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 50px auto;
   max-width: auto;
   justify-content: center;
 `;
@@ -30,8 +28,6 @@ export const FilterButton = styled.button`
   border-radius: 12px;
   margin: 0 18px;
   margin-top: 22px;
-  justify-content: center;
-  align-items: center;
   cursor: pointer;
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
 
@@ -41,36 +37,27 @@ export const FilterButton = styled.button`
 `;
 
 export const TextFrame = styled.div`
-  margin-top: 0;
   text-align: left;
-  margin-bottom: 0;
   color: #8a8a89;
   font-size: 14px;
-  font-style: normal;
-  font-family: 'Manrope', sans-serif;
   font-weight: 500;
-  line-height: 18px;
-  letter-spacing: 0;
-  text-transform: none;
+  font-family: 'Manrope', sans-serif;
   margin-bottom: 8px;
 `;
 
 export const SelectStyled = styled.select`
-  gap: 32px;
   display: flex;
   width: 224px;
   height: 48px;
   padding: 14px 89px 14px 18px;
-  position: relative;
-  box-sizing: border-box;
   align-items: center;
-  border: 0px solid #ccc; 
+  border: 0px solid #ccc;
   border-radius: 14px;
-  justify-content: center;
   background-color: #f7f7fb;
-  
+
   & option {
-  font-size: 16px;
+    font-size: 16px;
+    color: #80808039;
   }
 
   &:hover,
@@ -79,21 +66,19 @@ export const SelectStyled = styled.select`
   }
 `;
 
-
-
 export const PriceSelectStyled = styled.select`
-  gap: 32px;
   display: flex;
   padding: 14px 28px;
-  position: relative;
   width: 125px;
   height: 48px;
   border: 0px solid #ccc;
   border-radius: 14px 14px 14px 14px;
-  box-sizing: border-box;
-  align-items: center;
-  justify-content: center;
   background-color: #f7f7fb;
+
+  & option {
+    font-size: 16px;
+    color: #80808039;
+  }
 
   &:hover,
   &:focus {
@@ -105,7 +90,6 @@ export const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 18px;
-    
 `;
 
 const commonInputStyles = `
@@ -115,7 +99,7 @@ const commonInputStyles = `
   width: 160px;
   height: 48px;
   background-color: #f7f7fb;
-
+  color: black; 
 
   &:hover,
   &:focus {
@@ -127,16 +111,20 @@ export const FirstInput = styled.input`
   ${commonInputStyles}
   border-right: 1px solid #ddddd9;
   border-radius: 12px 0 0 12px;
-  
+  &::placeholder {
+    color: black;
+  }
 `;
 
 export const SecondInput = styled.input`
   ${commonInputStyles}
   border-radius: 0 12px 12px 0;
+  &::placeholder {
+    color: black;
+  }
 `;
 
 export const MileageSelectStyled = styled.div`
-  
   ${FirstInput},
   ${SecondInput} {
     margin-right: 0px;
