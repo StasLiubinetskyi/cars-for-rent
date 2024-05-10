@@ -1,10 +1,11 @@
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCars } from '../../redux/cars/selectorsCars';
-import { useEffect, useState } from 'react';
 import { getAllCars } from '../../redux/cars/operationsCars';
 import CarList from '../../components/CarList/CarList';
+import Loader from '../../components/Loader/Loader';
 
-const CataloPage = () => {
+const CatalogPage = () => {
   const cars = useSelector(selectCars);
   const [page] = useState(1);
   const dispatch = useDispatch();
@@ -13,6 +14,10 @@ const CataloPage = () => {
     dispatch(getAllCars(page));
   }, [dispatch, page]);
 
+  if (!cars.length) {
+    return <Loader />;
+  }
+
   return (
     <main>
       <CarList data={cars}></CarList>
@@ -20,4 +25,4 @@ const CataloPage = () => {
   );
 };
 
-export default CataloPage;
+export default CatalogPage;
